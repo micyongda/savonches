@@ -1,0 +1,77 @@
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": []
+  }
+{% endschema %}
+
+
+<footer>
+
+    <div class="col__left_footer">
+		<h1>FROM YOUR WISHLIST TO YOUR WARDROBE: AN ELUSIVE CURATION OF FASHION’S FINEST CREATIONS</h1>
+      	<!--
+      	<p>All Prices in USD. You're in good hands here.</p>
+		-->
+    </div>
+  
+	<div class="col__center_footer">
+      
+    	<ul>
+            {% for collection in collections %}
+          		{% if collection.title != 'Home page' and collection.title != 'News' and collection.title != 'Sold' %}
+                  <li>
+                      <a href="{{collection.url}}">{{ collection.title }}</a>
+                  </li>
+          		{% endif %}
+            {% endfor %}
+      	</ul>
+      
+      	<ul>
+            {% for product_type in shop.types %}
+            
+          	{% assign typename = product_type | link_to_type %}	
+          
+          	{% if typename != 'Unknown Type' %}
+              <li>
+                	{{ product_type | link_to_type }}
+              </li>
+          	{% endif %}
+            {% endfor %}
+      	</ul>
+      
+		<ul>
+          	{% for link in linklists.menu-footer.links %}
+          		<li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>          
+            {% endfor %}
+      	</ul>
+      
+  	</div>
+  
+  	<div class="col__right_footer">
+    
+      <!--	
+      <a href="{{ routes.root_url }}pages/consignment">SELL WITH US</a>
+	  -->
+      
+  	</div>
+  
+  	<div class="box__copyright">
+  
+      	<p>© 2022, Savonches. All Rights Reserved.</p>
+      
+      	<img src="{{ 'icon-payment-method.png' | asset_url }}" />
+  
+  	</div>
+
+
+</footer>
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

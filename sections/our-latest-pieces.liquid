@@ -1,0 +1,148 @@
+{% schema %}
+  {
+    "name": "Latest Pieces",
+    "settings": []
+  }
+{% endschema %}
+
+<section class="section__ourlatest_piece">
+  
+  	<h1>SHOP OUR LATEST PIECES</h1>
+
+  	<ul>
+  
+      
+  		{% for product in collections.news.products limit:12 %}
+      
+          {% assign prodsize = '-' %} 
+      	  {% assign prodcollection = '-' %}	 
+
+          {% for product_option in product.options_with_values %}
+
+            {% if product_option.name == 'Size' %}
+
+              {% for sizevalue in product_option.values %}
+                  {% assign prodsize = sizevalue %}
+              {% endfor %}
+
+            {% endif %}
+
+          {% endfor %}
+      
+      	  {% if product.collections.size > 0 %}
+
+            {% for collection in product.collections %}
+
+              {% if forloop.first == true %}
+
+              	{% assign prodcollection = collection.title %}
+
+              {% endif %}
+
+            {% endfor %}
+
+          {% endif %}
+      
+      
+      	
+      	<li>
+          	<a href="{{product.url}}">
+              {% for image in product.images %}
+
+                {% if forloop.first == true %}
+
+                    <div class="box__image_prod">
+                      <img src="{{ image | image_url }}" />
+                    </div>
+
+                {% endif %}
+
+              {% endfor %}
+
+              <h1>{{prodcollection}}</h1>
+              <h2>{{ product.title }}</h2>
+              <h3>{{ product.price | money }}</h3>
+              <p>SIZE: {{prodsize}}</p>
+          	</a>
+      	</li>
+      
+      	{% endfor %}      
+      
+  	</ul>
+        	<a href="/collections/all?sort_by=created-descending">See more</a>
+</section>
+
+<section class="section__ourlatest_piece">
+  
+  	<h1>SOLD ITEMS</h1>
+
+  	<ul>
+  
+      
+  		{% for product in collections.sold.products limit:8 %}
+      
+          {% assign prodsize = '-' %} 
+      	  {% assign prodcollection = '-' %}	 
+
+          {% for product_option in product.options_with_values %}
+
+            {% if product_option.name == 'Size' %}
+
+              {% for sizevalue in product_option.values %}
+                  {% assign prodsize = sizevalue %}
+              {% endfor %}
+
+            {% endif %}
+
+          {% endfor %}
+      
+      	  {% if product.collections.size > 0 %}
+
+            {% for collection in product.collections %}
+
+      		  {% if collection.title != 'News' and collection.title != 'Sold' %}	
+      
+              	{% assign prodcollection = collection.title %}
+      
+      		  {% endif %}
+
+            {% endfor %}
+
+          {% endif %}
+      
+      
+      	
+      	<li>
+          	<a href="{{product.url}}">
+              {% for image in product.images %}
+
+                {% if forloop.first == true %}
+
+                    <div class="box__image_prod">
+                      <img src="{{ image | image_url }}" />
+                    </div>
+
+                {% endif %}
+
+              {% endfor %}
+              <span class="soldout">Sold Out</span>
+              <h1>{{prodcollection}}</h1>
+              <h2>{{ product.title }}</h2>
+              <h3>{{ product.price | money }}</h3>
+              <p>SIZE: {{prodsize}}</p>
+          	</a>
+      	</li>
+      
+      	{% endfor %}      
+      
+  	</ul>
+  
+  	<a href="/collections/sold">See more</a>
+
+</section>
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
