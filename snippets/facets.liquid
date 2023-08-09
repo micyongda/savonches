@@ -35,17 +35,17 @@
 </div>
 
 <div class="box__filter_brands">
-
+    <!-- TO:DO -->
   	<select id="collections-filter">
       	<option value="">Brands</option>
       	<option value="/collections/all">All</option>
         {% for collection in collections %}
           {% if collection.title != 'Home page' and collection.title != 'News' %}
-              <option value="{{collection.url}}">{{ collection.title }}</option>
+              <option value="{{collection.url}}">{{ collection.title }} url={{ collection.url }}</option>
           {% endif %}
         {% endfor %}
   	</select>
-  
+  <!-- TO:DO -->
   <ul class="custom__select">
     <li rel="/collections/all">All</li>
     {% for collection in collections %}
@@ -61,7 +61,7 @@
 </div>
 
 <div class="box__filter_category">
-
+    <!-- TO:DO -->
   	<select id="category-filter">
       	<option value="">Category</option>
         {% for product_type in shop.types %}
@@ -71,6 +71,7 @@
         {% endfor %}
   	</select>
   
+  <!-- TO:DO -->
   <ul class="custom__select">
     {% for product_type in shop.types %}
     	{% if product_type != '' %}
@@ -178,6 +179,7 @@
     </form>
   </facet-filters-form>
   
+  <!-- TO:DO -->
   <ul class="custom__selectv2">
     {%- for option in results.sort_options -%}
     <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
@@ -232,6 +234,7 @@
                       </facet-remove>
                     </div>
 
+                    <!-- EXAMPLE REFERENCE -->
                     <ul class="facets__list list-unstyled" role="list">
                       {%- for value in filter.values -%}
                         <li class="list-menu__item facets__item">
