@@ -50,7 +50,7 @@ jQuery(document).ready(function(){
     jQuery(this).find('.custom__select').toggle();
     
   })
-  
+  // TO:DO
   jQuery('.section__filter_contain .col__filter .box__filter_sortby').click(function(e){
 
     if (e.target !== this)
@@ -59,7 +59,7 @@ jQuery(document).ready(function(){
     jQuery(this).find('.custom__selectv2').toggle();
     
   })
-  
+  // TO:DO
   jQuery('.box__filter_brands .custom__select li').click(function(){
     
     	let value = jQuery(this).attr('rel')
@@ -67,24 +67,24 @@ jQuery(document).ready(function(){
       	jQuery('#collections-filter').val(value).change();
     
   })
-  
-  jQuery('.box__filter_category .custom__select li').click(function(){
+  // TO:DO
+  // jQuery('.box__filter_category .custom__select li').click(function(){
     
-    	let value = jQuery(this).attr('rel').toLowerCase();
+  //   	let value = jQuery(this).attr('rel').toLowerCase();
     
-    	value = value.split(' ').join('-');
+  //   	value = value.split(' ').join('-');
   
-    	if(jQuery('#collections-filter').val() != '')
-        {
-        	location.href = location.origin+jQuery('#collections-filter').val()+'/'+value;
-        }
-    	else 
-        {
-        	location.href = location.origin+'/collections/all/'+value;
-        }
+  //   	if(jQuery('#collections-filter').val() != '')
+  //       {
+  //       	location.href = location.origin+jQuery('#collections-filter').val()+'/'+value;
+  //       }
+  //   	else 
+  //       {
+  //       	location.href = location.origin+'/collections/all/'+value;
+  //       }
       	
     
-  })
+  // })
   
   jQuery('.box__filter_size .custom__select li').click(function(){
     
