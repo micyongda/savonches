@@ -79,14 +79,11 @@
                     </div>
           </summary>
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
-            {%- unless results.filters == empty -%}
-              <h2 class="facets__heading caption-large text-body">{{ 'products.facets.filter_by_label' | t }}</h2>
-            {%- endunless -%}
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Category" %}
 
-                <!-- display filter active values  
+                <!-- Important: If removed, filters take up the half of the page -->
                 <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
                   <div class="facets__header">
                     <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
@@ -96,7 +93,6 @@
                       </a>
                     </facet-remove>
                   </div>
-                  -->
                   <!-- create checkboxes for filter's active values --> 
                   <ul class="facets__list list-unstyled" role="list">
                     {%- for value in filter.values -%}
