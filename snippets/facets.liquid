@@ -161,7 +161,13 @@
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Category" %}
-
+              <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <summary class="facets__summary caption-large focus-offset">
+                  <div>
+                    <span>{{ filter.label | escape }}</span>
+                    {% render 'icon-caret' %}
+                  </div>
+                </summary>
                 <!-- Important: If removed, filters take up the half of the page -->
                 <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
                   <div class="facets__header">
@@ -209,6 +215,7 @@
                     {%- endfor -%}
                   </ul>
                 </div>
+              </details>
               {%- endif -%}
             {%- endfor -%}
           </div>
