@@ -155,7 +155,8 @@
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Category" %}
                 <!-- Important: Keeps track of which filters have been applied -->
-              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="category-main-drop disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <!-- disclosure-has-popup facets__disclosure  -->
+              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="category-main-drop js-filter" data-index="{{ forloop.index }}">
                 <summary class="facets__summary caption-large focus-offset">
                   <div>
                     <span>{{ filter.label }}</span>
