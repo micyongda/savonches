@@ -231,14 +231,18 @@
 
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
-            {%- for filter in results.filters -%}
+          
+          <!-- product.metafields.filters.condition --> 
+          <!-- {{ product.metafields.filters.condition.value }} -->
+
+          {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-              {% if filter.label == "Condition" %}
+              {% if filter.label == "Brand" %}
                 <!-- Important: Keeps track of which filters have been applied -->
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="condition-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
-                          <span>Condition</span>
+                          <span>{{ product.metafields.filters.condition.value }}</span>
                           {% render 'icon-caret' %}
                         </div>
               </summary>
