@@ -149,11 +149,6 @@
           <input name="options[prefix]" type="hidden" value="last">
         {%- endif -%}
 
-        {%- if not results.terms -%}
-         <p>Metafields are: {{ results.metafields }}</p>
-        {%- endif -%}
-
-
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {%- for filter in results.filters -%}
@@ -163,7 +158,8 @@
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="category-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
-                          <span>Category</span>
+                          <!-- <span>Category</span> -->
+                          <span>Metafields are: {{ results.metafields }}</span>
                           {% render 'icon-caret' %}
                         </div>
               </summary>
