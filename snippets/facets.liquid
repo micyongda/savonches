@@ -150,18 +150,12 @@
         {%- endif -%}
 
         {% if enable_filtering %}
-          <details class="category-main-drop">
-          <summary class="facets__summary caption-large focus-offset">
-                    <div>
-                      <span>Category</span>
-                      {% render 'icon-caret' %}
-                    </div>
-          </summary>
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Category" %}
-              <details id="Details-{{ forloop.index }}-{{ section.id }}" class="disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+                <!-- Important: Keeps track of which filters have been applied -->
+              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="category-main-drop disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
                 <summary class="facets__summary caption-large focus-offset">
                   <div>
                     <span>{{ filter.label | escape }}</span>
