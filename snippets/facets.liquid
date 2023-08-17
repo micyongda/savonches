@@ -70,18 +70,21 @@
         {%- endif -%}
 
         {% if enable_filtering %}
-          <details class="brand-main-drop">
-          <summary class="facets__summary caption-large focus-offset">
+        <details class="brand-main-drop">
+<!-- TO: DELETE 
+        <summary class="facets__summary caption-large focus-offset">
                     <div>
                       <span>Brand</span>
                       {% render 'icon-caret' %}
                     </div>
           </summary>
+-->
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Brand" %}
-              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="brand-main-drop disclosure-has-popup facets__disclosure js-filter" data-index="{{ forloop.index }}">
+              <!-- disclosure-has-popup facets__disclosure  -->
+              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
                           <span>{{ filter.label | escpae }}</span>
@@ -139,7 +142,6 @@
               {%- endif -%}
             {%- endfor -%}
           </div>
-          </details>
         {% endif %}
       </form>
     </facet-filters-form>
