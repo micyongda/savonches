@@ -327,66 +327,8 @@
   
 </div>
 -->
-<!--
-<div class="box__filter_size">
-
-  	<select id="size-filter">
-      	<option value="">Size</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-        <option value="32">32</option>
-        <option value="33">33</option>
-        <option value="34">34</option>
-        <option value="35">35</option>
-        <option value="36">36</option>
-        <option value="37">37</option>
-        <option value="38">38</option>
-        <option value="39">39</option>
-        <option value="40">40</option>
-  	</select>
-  
-  <ul class="custom__select">
-      	<li rel="">Size</li>
-        <li rel="20">20</li>
-        <li rel="21">21</li>
-        <li rel="22">22</li>
-        <li rel="23">23</li>
-        <li rel="24">24</li>
-        <li rel="25">25</li>
-        <li rel="26">26</li>
-        <li rel="27">27</li>
-        <li rel="28">28</li>
-        <li rel="29">29</li>
-        <li rel="30">30</li>
-        <li rel="31">31</li>
-        <li rel="32">32</li>
-        <li rel="33">33</li>
-        <li rel="34">34</li>
-        <li rel="35">35</li>
-        <li rel="36">36</li>
-        <li rel="37">37</li>
-        <li rel="38">38</li>
-        <li rel="39">39</li>
-        <li rel="40">40</li>
-  </ul>
-  
-</div>
--->
 
 <div class="box__filter_sortby">
-  
-  
-  
   <facet-filters-form class="facets">
       <form id="FacetFiltersForm" class="facets__form">
 
@@ -456,6 +398,7 @@
             {%- endunless -%}
 
             {%- for filter in results.filters -%}
+              {% if filter.label != 'Brand' and filter.label != 'Category' and filter.label != 'Condition' %}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
               {% when 'list' %}
@@ -580,6 +523,7 @@
                 </details>
               {% endcase %}
               -->
+              {% endif %}
             {%- endfor -%}
             <noscript>
               <button type="submit" class="facets__button-no-js button button--tertiary">{{ 'products.facets.filter_button' | t }}</button>
