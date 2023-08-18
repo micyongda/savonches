@@ -158,8 +158,7 @@
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="category-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
-                          <!-- <span>Category</span> -->
-                          <span>Metafields are: {{ results }}</span>
+                          <span>Category</span>
                           {% render 'icon-caret' %}
                         </div>
               </summary>
@@ -236,15 +235,15 @@
           <!-- product.metafields.filters.condition --> 
           <!-- {{ product.metafields.filters.condition.value }} -->
 
-          {%- for filter in results.metafields -%}
+          {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-              <!-- {% if filter.value == "Brand" %} -->
+              {% if filter.value == "Condition" %}
                 <!-- Important: Keeps track of which filters have been applied -->
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="condition-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
-                          Hello this is a test: {{ filter }}
-                          {% render 'icon-caret' %}
+                        <span>Condition</span>
+                        {% render 'icon-caret' %}
                         </div>
               </summary>
                 <!-- Important: If removed, filters take up the half of the page -->
@@ -295,7 +294,7 @@
                   </ul>
                 </div>
               </details>
-              <!-- {%- endif -%} -->
+              {%- endif -%}
             {%- endfor -%}
           </div>
         {% endif %}
