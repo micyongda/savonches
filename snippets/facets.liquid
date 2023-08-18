@@ -385,14 +385,14 @@
         {%- endif -%}
 
         {% if enable_filtering %}
-          <details class="other-filters-main-drop">
-          <summary class="facets__summary caption-large focus-offset">
-                    <div>
-                      <span>Other Filters</span>
-                      {% render 'icon-caret' %}
-                    </div>
-          </summary>
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
+            <details class="other-filters-main-drop">
+              <summary class="facets__summary caption-large focus-offset">
+                        <div>
+                          <span>Other Filters</span>
+                          {% render 'icon-caret' %}
+                        </div>
+              </summary>
             <!-- {%- unless results.filters == empty -%}
               <h2 class="facets__heading caption-large text-body">{{ 'products.facets.filter_by_label' | t }}</h2>
             {%- endunless -%}
@@ -528,8 +528,8 @@
             <noscript>
               <button type="submit" class="facets__button-no-js button button--tertiary">{{ 'products.facets.filter_button' | t }}</button>
             </noscript>
+            </details>
           </div>
-          </details>
 
           <div class="active-facets active-facets-desktop">
             {%- for filter in results.filters -%}
