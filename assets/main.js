@@ -67,7 +67,7 @@ jQuery(document).ready(function(){
       	jQuery('#collections-filter').val(value).change();
     
   })
-  // TO:DO
+  // TO:DO Delete
   // jQuery('.box__filter_category .custom__select li').click(function(){
     
   //   	let value = jQuery(this).attr('rel').toLowerCase();
