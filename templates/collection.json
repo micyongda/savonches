@@ -11,7 +11,7 @@
                 "show_vendor": false,
                 "show_rating": false,
                 "enable_filtering": true,
-                "enable_sorting": false,
+                "enable_sorting": true,
                 "collapse_on_larger_devices": false,
                 "columns_mobile": "2",
                 "padding_top": 36,
