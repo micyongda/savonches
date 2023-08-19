@@ -411,7 +411,6 @@
                         </facet-remove>
                       </div>
 
-                      <!-- EXAMPLE REFERENCE -->
                       <ul class="facets__list list-unstyled" role="list">
                         {%- for value in filter.values -%}
                           <li class="list-menu__item facets__item">
@@ -449,6 +448,7 @@
                       </ul>
                     </div>
                   </details>
+                <!--  
                 {% when 'price_range' %}
                   {% liquid
                     assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
@@ -513,6 +513,7 @@
                     </div>
                   </details>
                 {% endcase %}
+                -->
               {% endif %}
             {%- endfor -%}
             <noscript>
