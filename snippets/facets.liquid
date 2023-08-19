@@ -324,6 +324,7 @@
 </div>
 -->
 
+<!-- TESTING
 <div class="box__filter_sortby">
   <facet-filters-form class="facets">
       <form id="FacetFiltersForm" class="facets__form">
@@ -341,8 +342,7 @@
             {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
               <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
                 {%- for option in results.sort_options -%}
-                <!-- <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option> -->
-                  <option value="title-descending" selected="selected">{{ "Alphabetically, Z-A" | escape }}</option> 
+                <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
                 {%- endfor -%}
               </select>
             
@@ -361,18 +361,108 @@
     </form>
   </facet-filters-form>
   
-  <!-- TO:DO -->
   <ul class="custom__selectv2">
     {%- for option in results.sort_options -%}
-      <!-- <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}> -->
-      <!--  {{ option.name | escape }} -->
-      <li rel="{{ "title-descending" | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
-        {{ "Alphabetically, Z-A" | escape }}
+      <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
+        {{ option.name | escape }}
       </li>
     {%- endfor -%}
   </ul>
         
 </div>
+-->
+
+<div class="facets-container box__filter_sortby_v2" style="display: block;">
+  <facet-filters-form class="facets">
+      <form id="FacetFiltersForm" class="facets__form">
+
+        {%- if results.terms -%}
+        <input type="hidden" name="q" value="{{ results.terms | escape }}">
+        <input name="options[prefix]" type="hidden" value="last">
+        {%- endif -%}
+
+        {%- if enable_sorting -%}
+          <!--<div class="facet-filters sorting caption"> -->
+          <div id="FacetsWrapperDesktop" class="facets__wrapper select">
+            {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+            <!-- <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message"> -->
+            <select name="sort_by" class="caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
+              {%- for option in results.sort_options -%}
+                <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="condition-main-drop js-filter" data-index="{{ forloop.index }}">
+                  <summary class="facets__summary caption-large focus-offset">
+                            <div>
+                            <span>Sort By</span>
+                            {% render 'icon-caret' %}
+                            </div>
+                  </summary>
+                <!-- Important: If removed, filters take up the half of the page -->
+                <!-- MAYBE NOT NECESSARY FOR SORT BY 
+                    <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
+                      <div class="facets__header">
+                        <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+                        <facet-remove>
+                          <a href="{{ option.url_to_remove }}" class="facets__reset link underlined-link">
+                            {{ 'products.facets.reset' | t }}
+                          </a>
+                        </facet-remove>
+                      </div>
+                -->
+                  <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>
+                    {{ option.name | escape }}
+                  </option>
+                </details>
+              {%- endfor -%}
+            </select>
+          </div>
+          
+          <noscript>
+            <button type="submit" class="facets__button-no-js button button--tertiary">{{ 'products.facets.sort_button' | t }}</button>
+          </noscript>
+
+            {%- for option in results.sort_options -%}
+              <ul class="facets__list list-unstyled custom__selectv2" role="list">
+                <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected list-menu__item facets__item"{% endif %}>
+
+                  <!--<label for="Filter-{{ option.name | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"> -->
+                  <!--<label for="SortBy">{{ 'products.facets.sort_by_label' | t }}> -->
+                  <label for="SortBy-{{ option.name | escape }}-{{ forloop.index }}" class="facet-checkbox">
+
+                    <input type="checkbox"
+                      name="{{ option.name }}"
+                      value="{{ option.value }}"
+                      id="SortBy-{{ option.name | escape }}-{{ forloop.index }}"
+                      {% if option.value %}checked{% endif %}
+                    >
+                      <!--  {% if value.count == 0 and value.active == false %}disabled{% endif %} -->
+
+                    <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                      <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                    </svg>
+
+                    <svg class="icon icon-checkmark"
+                      width="1.1rem"
+                      height="0.7rem"
+                      viewBox="0 0 11 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+
+                      <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                        stroke="currentColor"
+                        stroke-width="1.75"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+
+                    {{ option.name | escape }}
+                  </label>  
+                </li>
+              </ul>
+            {%- endfor -%}
+          {%- endif -%}
+    </form>
+  </facet-filters-form>
+</div>
+
 
 <div class="facets-container" style="display: block;">
   {%- unless collapse_on_larger_devices -%}
