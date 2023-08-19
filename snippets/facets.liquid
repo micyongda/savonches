@@ -342,7 +342,7 @@
               <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
                 {%- for option in results.sort_options -%}
                 <!-- <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option> -->
-                  <option value="title-descending"selected="selected">title-descending</option> 
+                  <option value="title-descending" selected="selected">{{ "Alphabetically, Z-A" | escape }}</option> 
                 {%- endfor -%}
               </select>
             
@@ -367,7 +367,7 @@
       <!-- <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}> -->
       <!--  {{ option.name | escape }} -->
       <li rel="{{ "title-descending" | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
-        {{ "title-descending" | escape }}
+        {{ "Alphabetically, Z-A" | escape }}
       </li>
     {%- endfor -%}
   </ul>
