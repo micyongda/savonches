@@ -1,0 +1,98 @@
+form#FacetFiltersForm span {
+  color: #000;
+}
+.facets__heading,
+.product-count,
+.facets-container .facet-filters.sorting.caption {
+  display: none;
+}
+.facets-container. facets__summary .icon-caret {
+  align-content: end;
+  right: 0.25rem;
+}
+.facets-container .facets__wrapper {
+  width: 100%;
+}
+details#Details-1-template--16673663123692__product-grid {
+  width: 100%;
+}
+.facets-container .facets__form {
+  display: block;
+}
+#FacetsWrapperDesktop {
+  display: block;
+  width: 100%;
+  padding: 10px 3px 0px 5px;
+}
+.facets-container {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 750px) {
+  .facets .disclosure-has-popup[open] > summary + * {
+    border-bottom: 1px solid #d3d3d3;
+    margin-left: 10px;
+  }
+}
+.facets__summary.caption-large.focus-offset[aria-expanded="false"] {
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 5px;
+  line-height: 35px;
+}
+#shopify-section-template--16673663123692__product-grid .facets-container {
+  border-bottom: none !important;
+}
+.facets__summary:hover span {
+  text-decoration: none !important;
+}
+#shopify-section-template--16673663123692__product-grid #FacetsWrapperDesktop {
+  padding: 0 !important;
+}
+.facets-container .facets__summary .icon-caret {
+  right: 5px;
+  margin-top: -2px;
+  margin-right: -2px;
+  color: #000;
+  width: 9px;
+  stroke: #000;
+  stroke-width: 0.2;
+}
+#shopify-section-template--16673663123692__product-grid form#FacetFiltersForm span {
+  color: #000;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+.facets__disclosure:first-of-type[open] {
+  margin-top: 7px;
+  padding-bottom: 20px;
+}
+.facets__disclosure[open] {
+  margin-top: 22px;
+  padding-bottom: 20px;
+}
+.facets__disclosure[open] .icon-caret {
+  margin-top: 0px;
+}
+.mobile-facets__wrapper {
+  font-size: 18px;
+  padding-left: 20px;
+}
+.facets-container .facets__display {
+  position: relative;
+}
+.product--thumbnail_slider .gallery__product_detail slider-component.slider__thumbnail {
+  overflow-y: auto;
+}
+@media screen and (min-width: 750px) {
+  .thumbnail-slider .thumbnail-list.slider--tablet-up { 
+    margin-top: 100px;
+  }
+}
