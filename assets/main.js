@@ -111,7 +111,10 @@ jQuery(document).ready(function(){
     	let value = jQuery(this).attr('rel')
     
   		jQuery('[name="sort_by"]').val(value)
-		jQuery('#FacetFiltersForm').submit()
+
+      location.href = location.href+'&sort_by='+value;
+
+		  // jQuery('#FacetFiltersForm').submit()
     
   })
   
