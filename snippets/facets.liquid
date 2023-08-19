@@ -34,31 +34,6 @@
 
 </div>
 
-<!-- TO:DO Delete
-<div class="box__filter_brands">
-
-  	<select id="collections-filter">
-      	<option value="">Brands</option>
-      	<option value="/collections/all">All</option>
-        {% for collection in collections %}
-          {% if collection.title != 'Home page' and collection.title != 'News' %}
-              <option value="{{collection.url}}">{{ collection.title }} url={{ collection.url }}</option>
-          {% endif %}
-        {% endfor %}
-  	</select>
-  <ul class="custom__select">
-    <li rel="/collections/all">All</li>
-    {% for collection in collections %}
-      {% if collection.title != 'Home page' and collection.title != 'News' and collection.title != 'Sold' %}
-      	<li rel="{{ collection.url }}">
-    		{{ collection.title }}
-    	</li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
--->
-
 <div class="facets-container" style="display: block;">
   {%- unless collapse_on_larger_devices -%}
     <facet-filters-form class="facets small-hide">
@@ -299,33 +274,10 @@
   {%- endunless -%}
 </div>  
 
-<!-- TO:DO Delete
-<div class="box__filter_category">
-  	<select id="category-filter">
-      	<option value="">Category</option>
-        {% for product_type in shop.types %}
-      		{% if product_type != '' %}
-              <option value="{{product_type}}">{{ product_type }}</option>
-      		{% endif %}
-        {% endfor %}
-  	</select>
-  
-  <ul class="custom__select">
-    {% for product_type in shop.types %}
-    	{% if product_type != '' %}
-      	<li rel="{{ product_type }}">
-    		{{ product_type }}
-    	</li>
-    	{% endif %}
-    {% endfor %}
-    
-  </ul>
-  
-</div>
--->
-
-<!-- TESTING
 <div class="box__filter_sortby">
+  
+  
+  
   <facet-filters-form class="facets">
       <form id="FacetFiltersForm" class="facets__form">
 
@@ -333,22 +285,21 @@
           <input type="hidden" name="q" value="{{ results.terms | escape }}">
           <input name="options[prefix]" type="hidden" value="last">
         {%- endif -%}
-	      
-        <div class="facet-filters sorting caption">
+	<div class="facet-filters sorting caption">
       
-          <div class="facet-filters__field">
+        <div class="facet-filters__field">
           
-            <div class="select">
+          <div class="select">
             {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-              <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
-                {%- for option in results.sort_options -%}
-                <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
-                {%- endfor -%}
-              </select>
+            <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
+              {%- for option in results.sort_options -%}
+              <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+              {%- endfor -%}
+            </select>
             
             
             
-            </div>
+          </div>
             
         </div>
 
@@ -363,15 +314,15 @@
   
   <ul class="custom__selectv2">
     {%- for option in results.sort_options -%}
-      <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
-        {{ option.name | escape }}
-      </li>
+    <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
+      {{ option.name | escape }}
+    </li>
     {%- endfor -%}
   </ul>
         
 </div>
--->
 
+<!-- 
 <div class="facets-container box__filter_sortby_v2" style="display: block;">
   <facet-filters-form class="facets">
       <form id="FacetFiltersForm" class="facets__form">
@@ -382,10 +333,8 @@
         {%- endif -%}
 
         {%- if enable_sorting -%}
-          <!--<div class="facet-filters sorting caption"> -->
           <div id="FacetsWrapperDesktop" class="facets__wrapper select">
             {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-            <!-- <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message"> -->
             <select name="sort_by" class="caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
               {%- for option in results.sort_options -%}
                 <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="condition-main-drop js-filter" data-index="{{ forloop.index }}">
@@ -395,18 +344,6 @@
                             {% render 'icon-caret' %}
                             </div>
                   </summary>
-                <!-- Important: If removed, filters take up the half of the page -->
-                <!-- MAYBE NOT NECESSARY FOR SORT BY 
-                    <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
-                      <div class="facets__header">
-                        <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
-                        <facet-remove>
-                          <a href="{{ option.url_to_remove }}" class="facets__reset link underlined-link">
-                            {{ 'products.facets.reset' | t }}
-                          </a>
-                        </facet-remove>
-                      </div>
-                -->
                   <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>
                     {{ option.name | escape }}
                   </option>
@@ -423,8 +360,6 @@
               <ul class="facets__list list-unstyled custom__selectv2" role="list">
                 <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected list-menu__item facets__item"{% endif %}>
 
-                  <!--<label for="Filter-{{ option.name | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"> -->
-                  <!--<label for="SortBy">{{ 'products.facets.sort_by_label' | t }}> -->
                   <label for="SortBy-{{ option.name | escape }}-{{ forloop.index }}" class="facet-checkbox">
 
                     <input type="checkbox"
@@ -433,7 +368,6 @@
                       id="SortBy-{{ option.name | escape }}-{{ forloop.index }}"
                       {% if option.value %}checked{% endif %}
                     >
-                      <!--  {% if value.count == 0 and value.active == false %}disabled{% endif %} -->
 
                     <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                       <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
@@ -462,7 +396,7 @@
     </form>
   </facet-filters-form>
 </div>
-
+-->
 
 <div class="facets-container" style="display: block;">
   {%- unless collapse_on_larger_devices -%}
