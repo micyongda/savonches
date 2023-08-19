@@ -364,8 +364,10 @@
   <!-- TO:DO -->
   <ul class="custom__selectv2">
     {%- for option in results.sort_options -%}
-      <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}>
-        {{ option.name | escape }}
+      <!-- <li rel="{{ option.value | escape }}" {% if option.value == sort_by %}class="selected"{% endif %}> -->
+      <!--  {{ option.name | escape }} -->
+      <li rel="{{ "title-descending" | escape }}" class="selected">
+        {{ "title-descending" | escape }}
       </li>
     {%- endfor -%}
   </ul>
