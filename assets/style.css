@@ -764,7 +764,8 @@ header .header__icons .header__icon.header__icon--account svg {
 }
 
 .section__filter_contain .col__filter .box__filter_sortby {
-	display: inline-block;
+	/* display: inline-block; */
+    display: block;
     vertical-align: middle;
     position: relative;
     padding: 20px 0 15px 0;
