@@ -125,7 +125,8 @@ jQuery(document).ready(function(){
     var prev_value = getParameterValueFromUrl(location.href, "sort_by");
     let value = jQuery(this).attr('rel')
     
-    jQuery('#SortBy [name="sort_by"]').val(value)
+    // jQuery('[name="sort_by"]').val(value)
+    jQuery('#SortByOption').val(value)
 
     if (prev_value == null) {
         if (location.href.includes('?') == false) {
