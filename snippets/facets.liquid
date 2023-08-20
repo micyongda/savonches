@@ -34,7 +34,6 @@
 
 </div>
 
-<div class="facets-container" style="display: block;">
   {%- unless collapse_on_larger_devices -%}
     <facet-filters-form class="facets small-hide">
       <form id="FacetFiltersForm" class="facets__form">
@@ -45,9 +44,9 @@
         {%- endif -%}
 
         {% if enable_filtering %}
-          <div id="FacetsWrapperDesktop">
-            <div class="facets__wrapper">
+          <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {%- for filter in results.filters -%}
+              <div class="facets-container" style="display: block;">
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Brand" or filter.label == "Category" or filter.label == "Condition" %}
               <!-- disclosure-has-popup facets__disclosure  -->
@@ -108,13 +107,12 @@
                 </details>
               {%- endif -%}
             {%- endfor -%}
-            </div>
+            </div> 
           </div>
         {% endif %}
       </form>
     </facet-filters-form>
   {%- endunless -%}
-</div> 
 
 <div class="facets-container" style="display: block;">
   {%- unless collapse_on_larger_devices -%}
