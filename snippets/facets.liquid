@@ -49,8 +49,7 @@
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Brand" or filter.label == "Category" %}
-              <!-- disclosure-has-popup facets__disclosure  -->
-              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter disclosure-has-popup facets__disclosure" data-index="{{ forloop.index }}">
+              <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
                           <span>{{ filter.label | escape }}</span>
