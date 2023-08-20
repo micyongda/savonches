@@ -125,8 +125,8 @@ jQuery(document).ready(function(){
     var prev_value = getParameterValueFromUrl(location.href, "sort_by");
     let value = jQuery(this).attr('rel')
     
-    // jQuery('[name="sort_by"]').val(value)
-    jQuery(this).parent().find('#SortByOption').val(value)
+    jQuery('[name="sort_by"]').val(value)
+    // jQuery(this).parent().find('#SortByOption').val(value)
 
     if (prev_value == null) {
         if (location.href.includes('?') == false) {
@@ -137,7 +137,7 @@ jQuery(document).ready(function(){
         }
     } else {
         console.log("Attempting to update URL. From previous value: "+prev_value+" to new value: "+value)
-        location.href.replace(prev_value, value)
+        location.href = location.href.replace(prev_value, value)
     }
 
 		// jQuery('#FacetFiltersForm').submit()
