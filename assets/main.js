@@ -207,6 +207,26 @@ window.onload = function() {
           }
       }
   })
+
+  jQuery('.box__filter_sortby select#SortBy option').each(function(){
+
+    if(jQuery(this).attr('value') != '')
+    {
+        let value = jQuery(this).attr('value').toLowerCase();
+      
+        value = value.split(' ').join('-');
+      
+        let matchdata = location.href.match(value);
+        
+
+        if(matchdata != null && matchdata.length == 1 )
+        {
+            jQuery(this).attr('selected','');
+          
+            jQuery(this).parent().parent().find('ul li[rel="'+jQuery(this).attr('value')+'"]').addClass('selected');
+        }
+    }
+})
   
 
   
