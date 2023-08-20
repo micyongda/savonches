@@ -508,7 +508,7 @@ blockquote {
 .form__label,
 .select__select {
   /* font-size: 1.3rem; */
-  font-size: 2.4rem;
+  font-size: 5.0rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   letter-spacing: 0.04rem;
 }
@@ -1674,7 +1674,8 @@ details[open] > .share-button__fallback {
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  font-size: 5.0rem;
   color: rgba(var(--color-foreground), 0.75);
 }
 
