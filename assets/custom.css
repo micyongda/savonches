@@ -6,7 +6,7 @@ form#FacetFiltersForm span {
 .facets-container .facet-filters.sorting.caption {
   display: none;
 }
-.facets-container. facets__summary .icon-caret {
+.facets-container .facets__summary .icon-caret {
   align-content: end;
   right: 0.25rem;
 }
