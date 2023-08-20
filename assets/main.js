@@ -126,7 +126,7 @@ jQuery(document).ready(function(){
     let value = jQuery(this).attr('rel')
     
     // jQuery('[name="sort_by"]').val(value)
-    jQuery('#SortByOption').val(value)
+    jQuery(this).parent().find('#SortByOption').val(value)
 
     if (prev_value == null) {
         if (location.href.includes('?') == false) {
