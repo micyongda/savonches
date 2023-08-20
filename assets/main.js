@@ -107,14 +107,38 @@ jQuery(document).ready(function(){
   })
   
   jQuery('.custom__selectv2 li').click(function(){
-  
-    	let value = jQuery(this).attr('rel')
+
+    function getParameterValueFromUrl(url, parameterName) {
+      var queryString = url.split('?')[1];
+      if (queryString) {
+          var parameters = queryString.split('&');
+          for (var i = 0; i < parameters.length; i++) {
+              var parameter = parameters[i].split('=');
+              if (parameter[0] === parameterName) {
+                  return parameter[1];
+              }
+          }
+      }
+      return null; // Parameter not found
+    }
+
+    var prev_value = getParameterValueFromUrl(location.href, "sort_by");
+    let value = jQuery(this).attr('rel')
     
-  		jQuery('[name="sort_by"]').val(value)
+    jQuery('[name="sort_by"]').val(value)
 
-      location.href = location.href+'&sort_by='+value;
+    if (prev_value == null) {
+        if (location.href.includes('?') == false) {
+            location.href = location.href+'&sort_by='+value;
+        }
+        else {
+            location.href = location.href+'?sort_by='+value;
+        }
+    } else {
+        location.href.replace(prev_value, value)
+    }
 
-		  // jQuery('#FacetFiltersForm').submit()
+		// jQuery('#FacetFiltersForm').submit()
     
   })
   
