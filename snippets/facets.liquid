@@ -216,6 +216,7 @@
               <option id="SortByOption" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
               {%- endfor -%}
             </select>
+            {% render 'icon-caret' %}
             
             
             
