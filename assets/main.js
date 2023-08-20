@@ -129,10 +129,10 @@ jQuery(document).ready(function(){
 
     if (prev_value == null) {
         if (location.href.includes('?') == false) {
-            location.href = location.href+'&sort_by='+value;
+            location.href = location.href+'?sort_by='+value;
         }
         else {
-            location.href = location.href+'?sort_by='+value;
+            location.href = location.href+'&sort_by='+value;
         }
     } else {
         location.href.replace(prev_value, value)
