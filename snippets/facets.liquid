@@ -43,11 +43,12 @@
           <input name="options[prefix]" type="hidden" value="last">
         {%- endif -%}
 
+        <div id="FacetsWrapperDesktop" class="facets__wrapper">
+
         {% if enable_filtering %}
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Brand" or filter.label == "Category" or filter.label == "Condition" %}
-              <div id="FacetsWrapperDesktop" class="facets__wrapper">
               <div class="facets-container" style="display: block;">
               <!-- disclosure-has-popup facets__disclosure  -->
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="brand-main-drop js-filter" data-index="{{ forloop.index }}">
@@ -105,7 +106,6 @@
                   </ul>
                 </div>
                 </details>
-                </div> 
                 </div>
               {%- endif -%}
             {%- endfor -%}
