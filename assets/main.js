@@ -135,6 +135,7 @@ jQuery(document).ready(function(){
             location.href = location.href+'&sort_by='+value;
         }
     } else {
+        console.log("Attempting to update URL. From previous value: "+prev_value+" to new value: "+value)
         location.href.replace(prev_value, value)
     }
 
@@ -208,25 +209,25 @@ window.onload = function() {
       }
   })
 
-  jQuery('.box__filter_sortby select#SortBy option').each(function(){
+//   jQuery('.box__filter_sortby select#SortBy option').each(function(){
 
-    if(jQuery(this).attr('value') != '')
-    {
-        let value = jQuery(this).attr('value').toLowerCase();
+//     if(jQuery(this).attr('value') != '')
+//     {
+//         let value = jQuery(this).attr('value').toLowerCase();
       
-        value = value.split(' ').join('-');
+//         value = value.split(' ').join('-');
       
-        let matchdata = location.href.match(value);
+//         let matchdata = location.href.match(value);
         
 
-        if(matchdata != null && matchdata.length == 1 )
-        {
-            jQuery(this).attr('selected','');
+//         if(matchdata != null && matchdata.length == 1 )
+//         {
+//             jQuery(this).attr('selected','');
           
-            jQuery(this).parent().parent().find('ul li[rel="'+jQuery(this).attr('value')+'"]').addClass('selected');
-        }
-    }
-})
+//             jQuery(this).parent().parent().find('ul li[rel="'+jQuery(this).attr('value')+'"]').addClass('selected');
+//         }
+//     }
+// })
   
 
   
