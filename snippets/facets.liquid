@@ -45,7 +45,8 @@
         {%- endif -%}
 
         {% if enable_filtering %}
-          <div id="FacetsWrapperDesktop" class="facets__wrapper">
+          <div id="FacetsWrapperDesktop">
+            <div class="facets__wrapper">
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% if filter.label == "Brand" or filter.label == "Category" or filter.label == "Condition" %}
@@ -107,6 +108,7 @@
                 </details>
               {%- endif -%}
             {%- endfor -%}
+            </div>
           </div>
         {% endif %}
       </form>
