@@ -48,7 +48,7 @@
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-              {% if filter.label == "Brand" %}
+              {% if filter.label == "Brand" or filter.label == "Brand" %}
               <!-- disclosure-has-popup facets__disclosure  -->
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="brand-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
@@ -293,7 +293,7 @@
             {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
             <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
               {%- for option in results.sort_options -%}
-              <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+              <option id="SortByOption" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
               {%- endfor -%}
             </select>
             
