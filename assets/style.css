@@ -780,8 +780,7 @@ header .header__icons .header__icon.header__icon--account svg {
 }
 
 .section__filter_contain .col__filter .box__filter_sortby .facet-filters.sorting {
-    /* padding: 0; */
-    width: 100%;
+    padding: 0;
 }
 
 .section__filter_contain .col__filter .box__filter_sortby .facet-filters.sorting .select {
