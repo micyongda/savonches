@@ -765,13 +765,13 @@ header .header__icons .header__icon.header__icon--account svg {
 
 .section__filter_contain .col__filter .box__filter_sortby {
 	/* display: inline-block; */
-    display: block;
     /* vertical-align: middle;
     position: relative;
     padding: 20px 0 15px 0;
     width: 100%; */
     border-bottom: 1px solid #d3d3d3;
-
+    display: block;
+    padding-top: 1rem;
 }
   
 .section__filter_contain .col__filter .box__filter_sortby form  {
