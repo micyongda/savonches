@@ -209,7 +209,7 @@
       
         <div class="facets__summary">
           
-          <div class="select" style="width: auto;">
+          <div class="select">
             {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
             <select name="sort_by" class="facet-filters__sort select__select caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
               {%- for option in results.sort_options -%}

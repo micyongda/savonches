@@ -783,10 +783,12 @@ header .header__icons .header__icon.header__icon--account svg {
     padding: 0;
 }
 
+.section__filter_contain .col__filter .facets-container .facets__wrapper .facets__summary .select,
 .section__filter_contain .col__filter .box__filter_sortby .facet-filters.sorting .select {
     width: 100%;
 }
-  
+
+/* .section__filter_contain .col__filter .facets-container .facets__wrapper .facets__summary select, */
 .section__filter_contain .col__filter .box__filter_sortby .facet-filters.sorting select {
     font-family: Work Sans;
     font-size: 14px;
