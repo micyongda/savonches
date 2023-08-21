@@ -92,6 +92,7 @@
   content: none;
 }
 
+.facet-filters__sort.select__select,
 .facet-filters__field .select__select,
 .mobile-facets__sort .select__select {
   border-radius: 0;
