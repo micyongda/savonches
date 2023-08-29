@@ -48,7 +48,7 @@
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {%- for filter in results.filters -%}
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-              {% if filter.label == "Brand" or filter.label == "Category" or filter.label == "Condition" %}
+              {% if filter.label %}
               <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
               <summary class="facets__summary caption-large focus-offset">
                         <div>
