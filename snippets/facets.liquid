@@ -47,7 +47,7 @@
 
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
-            {% assign filter_order = 'Brand, Category, Condition' | split: ", " %}
+            {% assign filter_order = 'Category, Brand, Condition' | split: ", " %}
             {%- for filter_label in filter_order -%}
               {%- for filter in results.filters -%}
               <!-- order of filters is as follows: 'Brand, Category, Size, Condition' -->
