@@ -52,9 +52,6 @@
             {%- for filter_label in filter_order -%}
               {% if filter_label != 'Size' %}
                 {%- for filter in results.filters -%}
-                  {%- if filter.label != 'Brand' or filter.label != 'Category' != or filter.label != 'Condition' -%}
-                    {% continue %}
-                  {%- endif -%}
                 <!-- order of filters is as follows: 'Brand, Category, Size, Condition' -->
                   {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                   {% if filter.label == filter_label %}
