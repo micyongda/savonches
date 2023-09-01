@@ -58,7 +58,7 @@
                     <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
                     <summary class="facets__summary caption-large focus-offset">
                               <div>
-                                <span>{{- filter_label | escape }}</span>
+                                <span>{{- size_filters | escape }}</span>
                                 {% render 'icon-caret' %}
                               </div>
                     </summary>
@@ -121,7 +121,6 @@
                           </div>
                 </summary>
                 {%- for filter in size_filters -%}
-                  <p>{{ filter }}</p>
                   <!-- order of filters is as follows: 'Brand, Category, Size, Condition' -->
                     {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                       <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
