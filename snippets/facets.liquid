@@ -47,7 +47,7 @@
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
             {% assign filter_order = 'Brand, Category, Condition, Size' | split: ", " %}
-            {% assign size_filters = results.filters | where_exp: "filter", "filter.label contains 'Size'" %}
+            {% assign size_filters = results.filters | where_exp: "filter", "filter.label == 'Test'" %}
 
             {%- for filter_label in filter_order -%}
               {% if filter_label != 'Size' %}
@@ -58,7 +58,7 @@
                     <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
                     <summary class="facets__summary caption-large focus-offset">
                               <div>
-                                <span>{{- size_filters | escape }}</span>
+                                <span>{{- filter_label | escape }}</span>
                                 {% render 'icon-caret' %}
                               </div>
                     </summary>
