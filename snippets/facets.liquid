@@ -46,7 +46,7 @@
 
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
-            {% assign filter_order = 'Brand, Category, Size, Condition' | split: ", " %}
+            {% assign filter_order = 'Brand, Category, Condition, Size' | split: ", " %}
             {% assign size_filter_labels = 'Heavy Jackets Size, Outerwear Size, Tops Size, Bottoms Size, Shoes Size' | split: ", " %}
             {%- for filter_label in filter_order -%}
               {%- for filter in results.filters -%}
