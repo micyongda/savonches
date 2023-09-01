@@ -123,7 +123,6 @@
                 {%- for filter in size_filters -%}
                   <!-- order of filters is as follows: 'Brand, Category, Size, Condition' -->
                     {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                    {% if filter.label == filter_label %}
                       <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
                       <summary class="facets__summary caption-large focus-offset">
                                 <div>
@@ -178,7 +177,6 @@
                           </ul>
                         </div>
                       </details>
-                    {%- endif -%}  
                   {%- endfor -%}
                   </details>
                 {%- endif -%}  
