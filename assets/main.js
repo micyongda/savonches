@@ -146,8 +146,26 @@ jQuery(document).ready(function(){
     const productTypes = ["Coats+%26+Jackets","Jeans","Light+Jackets","Pants","Shorts","Shirts","Sweaters+%26+Knitwear","Sweatshirts+%26+Hoodies","T-Shirts"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
 
-    clothing_url = "/collections/all?"+filterString
-    // 'filter.p.product_type=Coats+%26+Jackets&filter.p.product_type=Jeans&filter.p.product_type=Light+Jackets&filter.p.product_type=Pants&filter.p.product_type=Shirts&filter.p.product_type=Shorts&filter.p.product_type=Sweaters+%26+Knitwear&filter.p.product_type=Sweatshirts+%26+Hoodies&filter.p.product_type=T-Shirts&sort_by=created-descending'
+    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+
+    jQuery(this).attr('href', clothing_url)
+  })
+
+  jQuery('.list__collections_exclusivescontain .shop_bags_link').click(function(){    
+    const productTypes = ["Bags"]
+    const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
+    
+    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+
+    jQuery(this).attr('href', clothing_url)
+  })
+
+  jQuery('.list__collections_exclusivescontain .shop_shoes_link').click(function(){    
+    const productTypes = ["Shoes"]
+    const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
+    
+    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+
     jQuery(this).attr('href', clothing_url)
   })
   
