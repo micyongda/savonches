@@ -143,7 +143,7 @@ jQuery(document).ready(function(){
   })
 
   jQuery('.list__collections_exclusivescontain .shop_clothing_link').click(function(){    
-    const productTypes = ["Coats+Jackets","Jeans","Light+Jackets","Pants","Shorts","Shirts","Sweaters+Knitwear","Sweatshirts+Hoodies","T-Shirts"]
+    const productTypes = ["Coats+%26+Jackets","Jeans","Light+Jackets","Pants","Shorts","Shirts","Sweaters+%26+Knitwear","Sweatshirts+%26+Hoodies","T-Shirts"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
 
     clothing_url = "/collections/all?"+filterString
