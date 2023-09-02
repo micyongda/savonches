@@ -144,11 +144,11 @@ jQuery(document).ready(function(){
 
   jQuery('.list__collections_exclusivescontain .shop_clothing_link').click(function(){    
     const productTypes = ["Coats+Jackets","Jeans","Light+Jackets","Pants","Shorts","Shirts","Sweaters+Knitwear","Sweatshirts+Hoodies","T-Shirts"]
-    const filterString = productTypes.map(type => 'filter.p.product_type=${type}').join('&');
+    const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
 
     clothing_url = "/collections/all?"+filterString
     // 'filter.p.product_type=Coats+%26+Jackets&filter.p.product_type=Jeans&filter.p.product_type=Light+Jackets&filter.p.product_type=Pants&filter.p.product_type=Shirts&filter.p.product_type=Shorts&filter.p.product_type=Sweaters+%26+Knitwear&filter.p.product_type=Sweatshirts+%26+Hoodies&filter.p.product_type=T-Shirts&sort_by=created-descending'
-    jQuery(this).attr('href',clothing_url)
+    jQuery(this).attr('href', clothing_url)
   })
   
   
