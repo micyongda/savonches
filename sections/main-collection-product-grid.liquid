@@ -55,7 +55,8 @@
 </section>
 
 <div class="section-{{ section.id }}-padding section__collection_list">
-
+  {% assign available_products = collection.products | where: 'available' %}
+  {% assign sold_out_products = collection.products | where: 'available', false %}
   <!-- aqui estaba -->
 
   <div id="ProductGridContainer">
@@ -77,8 +78,6 @@
         <div class="collection page-width">
           <div class="loading-overlay gradient"></div>
           <!-- push down sold out items to the bottom of the product -->
-          {% assign available_products = collection.products | where: 'available' %}
-          {% assign sold_out_products = collection.products | where: 'available', false %}
           <ul
             id="product-grid"
             data-id="{{ section.id }}"
