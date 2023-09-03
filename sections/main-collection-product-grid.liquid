@@ -63,7 +63,6 @@
 
   <div id="ProductGridContainer">
     <!-- {%- paginate collection.products by section.settings.products_per_page -%} -->
-    <!--
       {%- paginate collections['test-available'].products by section.settings.products_per_page -%}
       {%- if available_products.size == 0 -%}
         <div
@@ -113,8 +112,8 @@
         </div>
       {%- endif -%}
     {%- endpaginate -%}
-    -->
-    <!-- display all sold out products after displaying all available products first --> 
+    <!--
+    display all sold out products after displaying all available products first
     {%- paginate collections['sold'].products by section.settings.products_per_page -%}
       {%- if available_products.size == 0 -%}
         <div
@@ -164,6 +163,7 @@
         </div>
       {%- endif -%}
     {%- endpaginate -%}
+    -->
   </div>
 </div>
 
