@@ -87,7 +87,7 @@
                           {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
                             grid--{{ section.settings.columns_desktop }}-col-desktop
                           {% endif %}">
-            <!-- {%- for product in available_products -%}
+            {%- for product in available_products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
@@ -102,7 +102,7 @@
                  show_rating: section.settings.show_rating,
                  lazy_load: lazy_load %}
               </li>
-            {%- endfor -%} -->
+            {%- endfor -%}
             {%- for product in sold_out_products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
