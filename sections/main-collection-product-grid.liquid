@@ -58,8 +58,8 @@
   {% assign available_products = collection.products | where: 'available' %}
   {% assign sold_out_products = collection.products | where: 'available', false %}
   
-  {% assign available_collection = collection['Test-Available'] %}
-  {% assign sold_out_collection = collection['Sold'] %}
+  {% assign available_collection = collections['Test-Available'] %}
+  {% assign sold_out_collection = collections['Sold'] %}
 
   <div id="ProductGridContainer">
     {%- paginate available_collection by section.settings.products_per_page -%}
