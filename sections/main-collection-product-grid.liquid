@@ -3,33 +3,25 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<link
-  rel="preload"
-  href="{{ 'component-rte.css' | asset_url }}"
-  as="style"
-  onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="{{ 'component-rte.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}
-    px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}
-    px;
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}
-      px;
-      padding-bottom: {{ section.settings.padding_bottom }}
-      px;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
 
-<section class="section__filter_contain">
+<section class="section__filter_contain" > 
 
   <div class="col__title">
     <!--<h1>{{- collection.title | escape -}}</h1>-->
@@ -37,38 +29,28 @@
   </div>
 
   <div class="col__filter">
-
+  
     {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
-      <div
-        class="page-width"
-        id="main-collection-filters"
-        data-id="{{ section.id }}">
+      <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
         {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
       </div>
     {%- endif -%}
-
+    
   </div>
 
 </section>
 
 <div class="section-{{ section.id }}-padding section__collection_list">
-  {% assign available_products = collection.products | where: 'available' %}
-  {% assign sold_out_products = collection.products | where: 'available', false %}
   
-  {% assign available_collection = collections['test-available'] %}
-  {% assign sold_out_collection = collections['sold'] %}
-
+  <!-- aqui estaba -->
+  
   <div id="ProductGridContainer">
-    <!-- {%- paginate collection.products by section.settings.products_per_page -%} -->
-      {%- paginate collections['test-available'].products by section.settings.products_per_page -%}
-      {%- if available_products.size == 0 -%}
-        <div
-          class="collection collection--empty page-width"
-          id="product-grid"
-          data-id="{{ section.id }}">
+    {%- paginate collection.products by section.settings.products_per_page -%}
+      {%- if collection.products.size == 0 -%}
+        <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
           <div class="title-wrapper center">
             <h2 class="title title--primary">
@@ -80,93 +62,39 @@
       {%- else -%}
         <div class="collection page-width">
           <div class="loading-overlay gradient"></div>
-          <ul
-            id="product-grid"
-            data-id="{{ section.id }}"
-            class="
-                          grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                          {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
-                            grid--{{ section.settings.columns_desktop }}-col-desktop
-                          {% endif %}">
-            {%- for product in available_products -%}
+  
+          <ul id="product-grid" data-id="{{ section.id }}" class="
+            grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+            {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
+              grid--{{ section.settings.columns_desktop }}-col-desktop
+            {% endif %}">
+            {%- for product in collection.products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
               {%- endif -%}
 
               <li class="grid__item">
-                {% render 'card-product'
-                 , card_product: product,
-                 media_aspect_ratio: section.settings.image_ratio,
-                 show_secondary_image: section.settings.show_secondary_image,
-                 show_vendor: section.settings.show_vendor,
-                 show_rating: section.settings.show_rating,
-                 lazy_load: lazy_load %}
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  lazy_load: lazy_load
+                %}
               </li>
             {%- endfor -%}
           </ul>
-
+  
           {%- if paginate.pages > 1 -%}
             {% render 'pagination', paginate: paginate, anchor: '' %}
           {%- endif -%}
         </div>
       {%- endif -%}
     {%- endpaginate -%}
-    <!--
-    display all sold out products after displaying all available products first
-    {%- paginate collections['sold'].products by section.settings.products_per_page -%}
-      {%- if available_products.size == 0 -%}
-        <div
-          class="collection collection--empty page-width"
-          id="product-grid-sold-out"
-          data-id="{{ section.id }}">
-          <div class="loading-overlay gradient"></div>
-          <div class="title-wrapper center">
-            <h2 class="title title--primary">
-              {{ 'sections.collection_template.empty' | t }}<br>
-              {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: "underlined-link link" }}
-            </h2>
-          </div>
-        </div>
-      {%- else -%}
-        <div class="collection page-width">
-          <div class="loading-overlay gradient"></div>
-          <ul
-            id="product-grid-sold-out"
-            data-id="{{ section.id }}"
-            class="
-                          grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                          {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
-                            grid--{{ section.settings.columns_desktop }}-col-desktop
-                          {% endif %}">
-            {%- for product in sold_out_products -%}
-              {% assign lazy_load = false %}
-              {%- if forloop.index > 2 -%}
-                {%- assign lazy_load = true -%}
-              {%- endif -%}
-
-              <li class="grid__item">
-                {% render 'card-product'
-                 , card_product: product,
-                 media_aspect_ratio: section.settings.image_ratio,
-                 show_secondary_image: section.settings.show_secondary_image,
-                 show_vendor: section.settings.show_vendor,
-                 show_rating: section.settings.show_rating,
-                 lazy_load: lazy_load %}
-              </li>
-            {%- endfor -%}
-          </ul>
-
-          {%- if paginate.pages > 1 -%}
-            {% render 'pagination', paginate: paginate, anchor: '' %}
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-    {%- endpaginate -%}
-    -->
   </div>
 </div>
-
 {% schema %}
   {
     "name": "t:sections.main-collection-product-grid.name",
