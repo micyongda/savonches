@@ -62,7 +62,9 @@
   {% assign sold_out_collection = collections['sold'] %}
 
   <div id="ProductGridContainer">
-    {%- paginate collections['test-available'].products by section.settings.products_per_page -%}
+    <!-- {%- paginate collection.products by section.settings.products_per_page -%} -->
+    <!--
+      {%- paginate collections['test-available'].products by section.settings.products_per_page -%}
       {%- if available_products.size == 0 -%}
         <div
           class="collection collection--empty page-width"
@@ -79,7 +81,6 @@
       {%- else -%}
         <div class="collection page-width">
           <div class="loading-overlay gradient"></div>
-          <!-- push down sold out items to the bottom of the product -->
           <ul
             id="product-grid"
             data-id="{{ section.id }}"
@@ -112,6 +113,7 @@
         </div>
       {%- endif -%}
     {%- endpaginate -%}
+    -->
     <!-- display all sold out products after displaying all available products first --> 
     {%- paginate collections['sold'].products by section.settings.products_per_page -%}
       {%- if available_products.size == 0 -%}
@@ -130,7 +132,6 @@
       {%- else -%}
         <div class="collection page-width">
           <div class="loading-overlay gradient"></div>
-          <!-- push down sold out items to the bottom of the product -->
           <ul
             id="product-grid-sold-out"
             data-id="{{ section.id }}"
