@@ -46,14 +46,13 @@
 <div class="section-{{ section.id }}-padding section__collection_list">
   {% assign available_products = collection.products | where: 'available' %}
   {% assign sold_out_products = collection.products | where: 'available', false %}
-  {% assign products_list = collections['test-available'].products | concat: collections['sold'].products %}
   
   {% assign available_collection = collections['test-available'] %}
   {% assign sold_out_collection = collections['sold'] %}
   <!-- aqui estaba -->
   
   <div id="ProductGridContainer">
-    {%- paginate collections['sold'].products by section.settings.products_per_page -%}
+    {%- paginate collections['test-available'].products by section.settings.products_per_page -%}
       {%- if sold_out_products.size == 0 -%}
         <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
@@ -73,7 +72,7 @@
             {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
               grid--{{ section.settings.columns_desktop }}-col-desktop
             {% endif %}">
-            {%- for product in products_list -%}
+            {%- for product in collections['test-available'].products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
