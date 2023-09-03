@@ -52,7 +52,7 @@
   <!-- aqui estaba -->
   
   <div id="ProductGridContainer">
-    {%- paginate collections['sold'].products by section.settings.products_per_page -%}
+    {%- paginate collections['news'].products by section.settings.products_per_page -%}
       {%- if sold_out_products.size == 0 -%}
         <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
           <div class="loading-overlay gradient"></div>
@@ -72,7 +72,7 @@
             {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
               grid--{{ section.settings.columns_desktop }}-col-desktop
             {% endif %}">
-            {%- for product in collections['sold'].products -%}
+            {%- for product in collections['news'].products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
