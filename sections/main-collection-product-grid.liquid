@@ -76,6 +76,9 @@
       {%- else -%}
         <div class="collection page-width">
           <div class="loading-overlay gradient"></div>
+          <!-- push down sold out items to the bottom of the product -->
+          {% assign available_products = collection.products | where: 'available' %}
+          {% assign sold_out_products = collection.products | where: 'available', false %}
           <ul
             id="product-grid"
             data-id="{{ section.id }}"
@@ -84,7 +87,23 @@
                           {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
                             grid--{{ section.settings.columns_desktop }}-col-desktop
                           {% endif %}">
-            {%- for product in collection.products -%}
+            <!-- {%- for product in available_products -%}
+              {% assign lazy_load = false %}
+              {%- if forloop.index > 2 -%}
+                {%- assign lazy_load = true -%}
+              {%- endif -%}
+
+              <li class="grid__item">
+                {% render 'card-product'
+                 , card_product: product,
+                 media_aspect_ratio: section.settings.image_ratio,
+                 show_secondary_image: section.settings.show_secondary_image,
+                 show_vendor: section.settings.show_vendor,
+                 show_rating: section.settings.show_rating,
+                 lazy_load: lazy_load %}
+              </li>
+            {%- endfor -%} -->
+            {%- for product in sold_out_products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
