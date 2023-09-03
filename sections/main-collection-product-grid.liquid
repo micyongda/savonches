@@ -76,7 +76,7 @@
       {%- else -%}
         <div class="collection page-width">
           <div class="loading-overlay gradient"></div>
-
+          {% assign products = collection.products | where "available" %}
           <ul
             id="product-grid"
             data-id="{{ section.id }}"
@@ -85,7 +85,7 @@
                           {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
                             grid--{{ section.settings.columns_desktop }}-col-desktop
                           {% endif %}">
-            {%- for product in collection.products -%}
+            {%- for product in products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
