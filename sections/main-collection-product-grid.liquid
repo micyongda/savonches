@@ -35,7 +35,7 @@
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
       <div class="page-width" id="main-collection-filters" data-id="{{ section.id }}">
-        {% render 'facets', results: collections['sold'], enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
+        {% render 'facets', results: collection, enable_filtering: section.settings.enable_filtering, enable_sorting: section.settings.enable_sorting, collapse_on_larger_devices: section.settings.collapse_on_larger_devices %}
       </div>
     {%- endif -%}
     
@@ -72,7 +72,7 @@
             {% if section.settings.columns_desktop == 1 %} grid--full-width{% else %}
               grid--{{ section.settings.columns_desktop }}-col-desktop
             {% endif %}">
-            {%- for product in sold_out_products -%}
+            {%- for product in collections['sold'].products -%}
               {% assign lazy_load = false %}
               {%- if forloop.index > 2 -%}
                 {%- assign lazy_load = true -%}
