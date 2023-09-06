@@ -169,7 +169,7 @@ jQuery(document).ready(function(){
     jQuery(this).attr('href', new_url)
   })
 
-  jQuery('.header__inline-menu .list-menu  #main-menu-products-link').click(function(){        
+  jQuery('.header__inline-menu .list-menu .list-menu--inline #main-menu-products-link').click(function(){        
     const new_url = "/collections/all?sort_by=created-descending";
 
     jQuery(this).attr('href', new_url)
