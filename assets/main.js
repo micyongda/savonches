@@ -169,7 +169,7 @@ jQuery(document).ready(function(){
     jQuery(this).attr('href', clothing_url)
   })
 
-  jQuery('.list__collections_exclusivescontain .shop_shoes_link').click(function(){    
+  jQuery('.header__menu-item .header__menu-item .list-menu__item .link .link--text .focus-inset').click(function(){    
     const productTypes = ["Shoes"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
     
