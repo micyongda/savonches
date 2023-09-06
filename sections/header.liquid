@@ -353,7 +353,8 @@
                       {% render 'icon-caret' %}
                     </summary>
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
-                      
+                      {%- if link.title == 'Brands' -%}
+                      {%- else -%}
                       {%- for childlink in link.links -%}
                         <li>
                           {%- if childlink.links == blank -%}
@@ -379,6 +380,7 @@
                           {%- endif -%}
                         </li>
                       {%- endfor -%}
+                      {%- endif-%}
                     </ul>
                   </details>
                 </details-disclosure>
