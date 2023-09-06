@@ -155,22 +155,22 @@ jQuery(document).ready(function(){
     const productTypes = ["Bags"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
     
-    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+    const bags_url = "/collections/all?"+filterString+"&sort_by=created-descending";
 
-    jQuery(this).attr('href', clothing_url)
+    jQuery(this).attr('href', bags_url)
   })
 
   jQuery('.list__collections_exclusivescontain .shop_shoes_link').click(function(){    
     const productTypes = ["Shoes"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
     
-    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+    const shoes_url = "/collections/all?"+filterString+"&sort_by=created-descending";
 
-    jQuery(this).attr('href', clothing_url)
+    jQuery(this).attr('href', shoes_url)
   })
 
   jQuery('.header__menu-item .header__menu-item .list-menu__item .link .link--text .focus-inset .main-menu-new-products').click(function(){        
-    const clothing_url = "/collections/all?sort_by=created-descending";
+    const products_url = "/collections/all?sort_by=created-descending";
 
     jQuery(this).attr('href', clothing_url)
   })
