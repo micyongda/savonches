@@ -352,6 +352,15 @@
     {%- if section.settings.menu != blank -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
+          <!-- 
+          {% assign brands = ''  %}
+            {% for product in collection.products %}
+              {% unless brands contains product.vendor %}
+                {% assign brands = brands | append: product.vendor | append: ', ' %}
+              {% endunless %}
+            {% endfor %}
+          {% assign brands = brands | split: ', ' | sort %}
+          -->
           {%- for link in section.settings.menu.links -%}
             <li>
               {%- if link.links != blank -%}
@@ -427,6 +436,7 @@
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset logo__desktop">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+            {{ template }}
             <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
               src="{{ section.settings.logo | img_url: image_size }}"
               loading="lazy"
