@@ -355,8 +355,7 @@
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                       {%- if link.title == 'Brands' -%}
                         {% for product_vendor in collection.all_vendors %}
-                          <li>hello?{{- product_vendor }}
-                          </li>
+                          <li>hello?</li>
                         {% endfor %}
                       {%- else -%}
                         {%- for childlink in link.links -%}
