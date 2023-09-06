@@ -357,8 +357,8 @@
                       {%- for filter in collection.filters -%}
                         {%- if filter.label == 'Brand' -%}
                           {%- for value in filter.values-%}
-                            <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.active %} list-menu__item--active{% endif %}"{% if value.current %} aria-current="page"{% endif %}>
-                              filter
+                            <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.active %} list-menu__item--active{% endif %}"{% if value.active %} aria-current="page"{% endif %}>
+                              {{ value }}
                             </a>
                           {%-endfor-%}                          
                         {%-endif-%}
