@@ -355,11 +355,12 @@
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                       {%- if link.title == 'Brands' -%}
                       {%- for filter in collection.filters -%}
-                        
                         {%- if filter.label == 'Brand' -%}
-                          <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                            filter
-                          </a>                          
+                          {%- for value in filter.values-%}
+                            <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                              filter
+                            </a>
+                          {%-endfor-%}                          
                         {%-endif-%}
                       {%- endfor -%}
 
