@@ -353,10 +353,8 @@
                       {% render 'icon-caret' %}
                     </summary>
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
-                      {%- for childlink in link.links -%}
-                       {{ childlink }}
-                      {%-endfor-%}
                       {%- if link.title == 'Brands' -%}
+                        {{ link.title }}
                         {%- for vendor in collection.all_vendors -%}
                           <li>
                             <a href="{{ vendor.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if vendor.current %} list-menu__item--active{% endif %}"{% if vendor.current %} aria-current="page"{% endif %}>
