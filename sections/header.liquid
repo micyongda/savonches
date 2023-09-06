@@ -356,7 +356,7 @@
                       {%- if link.title == 'Brands' -%}
                         {%- for filter in collection.filters -%}
                           <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.active %} list-menu__item--active{% endif %}"{% if value.active %} aria-current="page"{% endif %}>
-                          {{ value.label | escape }}
+                          {{ filter.label | escape }}
                           </a>
                           <!--
                           {%- if filter.label == 'Brand' -%}
