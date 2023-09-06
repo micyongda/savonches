@@ -389,8 +389,8 @@
                 {%- endif -%}
                 {%- if link.title == 'Sell To Us' -%}
                   <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset"{% if link.current %} aria-current="page"{% endif %}>
-                  <span {%- if link.current %} class="header__active-menu-item"{% endif %}>The "Products" Title is: {{ link.title | escape }}</span>
-                </a>
+                    <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                  </a>
                 {%- endif -%}
               {%- endif -%}
             </li>
