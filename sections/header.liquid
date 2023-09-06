@@ -356,7 +356,7 @@
                       {%- if link.title == 'Brands' -%}
                         {% for product_vendor in collection.all_vendors %}
                           <li>
-                          {{- product_vendor | link_to_vendor }}
+                          {{- product_vendor }}
                           </li>
                         {% endfor %}
 <!--
