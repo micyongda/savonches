@@ -172,7 +172,7 @@ jQuery(document).ready(function(){
   jQuery('.header__menu-item .header__menu-item .list-menu__item .link .link--text .focus-inset .main-menu-new-products').click(function(){        
     const products_url = "/collections/all?sort_by=created-descending";
 
-    jQuery(this).attr('href', clothing_url)
+    jQuery(this).attr('href', products_url)
   })
   
   
