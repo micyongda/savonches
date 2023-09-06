@@ -354,14 +354,6 @@
                     </summary>
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                       {%- if link.title == 'Brands' -%}
-                          {%- if filter.label == 'Brand' -%}
-                            {%- for value in filter.values-%}
-                              <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.active %} list-menu__item--active{% endif %}"{% if value.active %} aria-current="page"{% endif %}>
-                                {{ value.label | escape }}
-                              </a>
-                            {%-endfor-%}                          
-                          {%-endif-%}
-                      <!--
                         {%- for vendor in collection.all_vendors -%}
                           <li>
                             {%- if vendor.links == blank -%}
@@ -371,7 +363,6 @@
                             {%- endif -%}
                           </li>
                         {%- endfor -%}
-                        -->
                       {%- else -%}
                         {%- for childlink in link.links -%}
                           <li>
