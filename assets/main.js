@@ -174,7 +174,12 @@ jQuery(document).ready(function(){
 
     jQuery(this).attr('href', new_url)
   })
-  
+
+  jQuery('#main-menu-brands-link').click(function(){        
+    const new_url = "/collections/all?sort_by=created-descending";
+
+    jQuery(this).attr('href', new_url)
+  })
   
   
 })
