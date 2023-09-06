@@ -357,8 +357,8 @@
                         {%- for vendor in collection.all_vendors -%}
                           <li>
                             {%- if vendor.links == blank -%}
-                              <a href="{{ vendor.url }}" class="{% if vendor.current %} aria-current="page"{% endif %}>
-                                {{ vendor | link_to_vendor: class: 'link-class' }}
+                              <a href="{{ vendor.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if vendor.current %} list-menu__item--active{% endif %}"{% if vendor.current %} aria-current="page"{% endif %}>
+                                {{ vendor | link_to_vendor }}
                               </a>
                             {%- endif -%}
                           </li>
