@@ -168,6 +168,15 @@ jQuery(document).ready(function(){
 
     jQuery(this).attr('href', clothing_url)
   })
+
+  jQuery('.list__collections_exclusivescontain .shop_shoes_link').click(function(){    
+    const productTypes = ["Shoes"]
+    const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
+    
+    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+
+    jQuery(this).attr('href', clothing_url)
+  })
   
   
 })
