@@ -359,14 +359,6 @@
                           {{- product_vendor }}
                           </li>
                         {% endfor %}
-<!--
-                        {%- for vendor in collection.all_vendors -%}
-                          <li>
-                            <a href="{{ vendor.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if vendor.current %} list-menu__item--active{% endif %}"{% if vendor.current %} aria-current="page"{% endif %}>
-                              {{ vendor | link_to_vendor }}
-                            </a>
-                          </li>
-                        {%- endfor -%} -->
                       {%- else -%}
                         {%- for childlink in link.links -%}
                           <li>
