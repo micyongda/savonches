@@ -97,3 +97,10 @@ details#Details-1-template--16673663123692__product-grid {
     margin-top: 100px;
   }
 }
+
+/* For next job: Improve Font of Sort By */
+.section__filter_contain .col__filter .box__filter_sortby .facet-filters.sorting select {
+  font-family: Assistant, sans-serif;
+  font-size: 15px
+}
+  
