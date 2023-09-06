@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
+{%- liquid
+assign brands = ''  %}
+            {% for product in collection.products %}
+              {% unless brands contains product.vendor %}
+                {% assign brands = brands | append: product.vendor | append: ', ' %}
+              {% endunless %}
+            {% endfor %}
+          {% assign brands = brands | split: ', ' | sort %}
+
 
 <noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
