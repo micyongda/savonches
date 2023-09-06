@@ -343,12 +343,13 @@
     {%- if section.settings.menu != blank -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
+          
           {% assign brands = ''  %}
-          {% for product in collection.products %}
-            {% unless brands contains product.vendor %}
-              {% assign brands = brands | append: product.vendor | append: ', ' %}
-            {% endunless %}
-          {% endfor %}
+            {% for product in collection.products %}
+              {% unless brands contains product.vendor %}
+                {% assign brands = brands | append: product.vendor | append: ', ' %}
+              {% endunless %}
+            {% endfor %}
           {% assign brands = brands | split: ', ' | sort %}
           
           {%- for link in section.settings.menu.links -%}
@@ -363,7 +364,7 @@
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                       {%- if link.title == 'Brands' -%}
                       {% for brand in brands %}
-                      
+                        
                       {% endfor %}
                       <!-- does not work 
                         {%- for product_vendor in collection.all_vendors -%}
