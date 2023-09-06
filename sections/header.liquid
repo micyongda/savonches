@@ -363,10 +363,8 @@
                     </summary>
                     <ul id="HeaderMenu-MenuList-{{ forloop.index }}" class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
                       {%- if link.title == 'Brands' -%}
-                        {% for brand in brands %}
-                          <a href="" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
-                            {{ brand | escape }}
-                          </a>                        
+                        {% for brand in brands %}             
+                          {{ brand | escape }}         
                         {% endfor %}
                       <!-- does not work 
                         {%- for product_vendor in collection.all_vendors -%}
