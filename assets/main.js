@@ -146,33 +146,33 @@ jQuery(document).ready(function(){
     const productTypes = ["Coats+%26+Jackets","Jeans","Light+Jackets","Pants","Shorts","Shirts","Sweaters+%26+Knitwear","Sweatshirts+%26+Hoodies","T-Shirts"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
 
-    const clothing_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+    const new_url = "/collections/all?"+filterString+"&sort_by=created-descending";
 
-    jQuery(this).attr('href', clothing_url)
+    jQuery(this).attr('href', new_url)
   })
 
   jQuery('.list__collections_exclusivescontain .shop_bags_link').click(function(){    
     const productTypes = ["Bags"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
     
-    const bags_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+    const new_url = "/collections/all?"+filterString+"&sort_by=created-descending";
 
-    jQuery(this).attr('href', bags_url)
+    jQuery(this).attr('href', new_url)
   })
 
   jQuery('.list__collections_exclusivescontain .shop_shoes_link').click(function(){    
     const productTypes = ["Shoes"]
     const filterString = productTypes.map(type => `filter.p.product_type=${type}`).join('&');
     
-    const shoes_url = "/collections/all?"+filterString+"&sort_by=created-descending";
+    const new_url = "/collections/all?"+filterString+"&sort_by=created-descending";
 
-    jQuery(this).attr('href', shoes_url)
+    jQuery(this).attr('href', new_url)
   })
 
   jQuery('.header__menu-item .header__menu-item .list-menu__item .link .link--text .focus-inset .main-menu-new-products').click(function(){        
-    const products_url = "/collections/all?sort_by=created-descending";
+    const new_url = "/collections/all?sort_by=created-descending";
 
-    jQuery(this).attr('href', products_url)
+    jQuery(this).attr('href', new_url)
   })
   
   
