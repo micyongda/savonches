@@ -344,12 +344,13 @@
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
           {% assign brands = ''  %}
-
           {% for product in collection.products %}
             {% unless brands contains product.vendor %}
               {% assign brands = brands | append: product.vendor | append: ', ' %}
             {% endunless %}
           {% endfor %}
+          {% assign brands = brands | split: ', ' | sort %}
+          
           {%- for link in section.settings.menu.links -%}
             <li>
               {%- if link.links != blank -%}
