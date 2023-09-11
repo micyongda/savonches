@@ -97,3 +97,15 @@ details#Details-1-template--16673663123692__product-grid {
     margin-top: 100px;
   }
 }
+
+.facet-checkbox--disabled.hide-size-filter {
+  display: none !important;
+}
+
+.hide-size-filter {
+  display: none !important;
+}
+.hide-size-filter-label {
+  display: none !important;
+}
+
