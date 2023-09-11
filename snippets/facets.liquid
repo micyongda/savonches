@@ -113,60 +113,45 @@
                 {%- endfor -%}
               {% else %}
                 <!-- checking if its necessary to entire size filter label --> 
-                {%- assign hide_sizes_label = true -%}
-                {%- for size_filter in size_filters -%}
-                  {%- if size_filter.label == 'Condition' or size_filter.label == 'Category' or size_filter.label == 'Brand' -%}{% continue %}{%- endif -%}
-                  {%- for value in size_filter.values -%}
-                    {% if value.count > 0 %}
-                      {%- assign hide_sizes_label = false -%}
-                    {% endif %}
-                  {%- endfor -%}
-                {%- endfor -%}
-
+                {%- assign hide_sizes_label = false -%}
                 {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_label == true %} hide-size-filter {% else %} {{- filter_label | escape }}-main-drop js-filter {% endif %}" data-index="{{- filter_label | escape }}-{{ forloop.index }}">
+                <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_label == true %} hide-size-filter {% else %} {{- filter_label | escape }}-main-drop js-filter {% endif %}" data-index="">
                 <summary class="facets__summary caption-large focus-offset">
                           <div>
                             <span>Sizes</span>
                             {% render 'icon-caret' %}
                           </div>
                 </summary>
-                {%- for size_filter in size_filters -%}
-                  <!-- check whether to hide a size filter label -->
-                  {%- if size_filter.label == 'Condition' or size_filter.label == 'Category' or size_filter.label == 'Brand' -%}{% continue %}{%- endif -%}
-                  {%- assign hide_sizes_filter_label = true -%}
-                  {%- for value in size_filter.values -%}
-                    {% if value.count > 0 %}
-                      {%- assign hide_sizes_filter_label = false -%}
-                    {% endif %}
-                  {%- endfor -%}
-
+                {%- for filter in size_filters -%}
+                  <!-- checking if its necessary to hide a size filter label --> 
+                  {%- if filter.label == 'Condition' or filter.label == 'Category' or filter.label == 'Brand' -%}{% continue %}{%- endif -%}
+                  {%- assign hide_sizes_filter_label = false -%}
                     {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                      <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_filter_label == true %} hide-size-filter-label {% else %} {{ size_filter.label | escape }}-main-drop js-filter {% endif %}" data-index="{{ size_filter.label | escape }}-{{ forloop.index }}">
+                      <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_filter_label == true %} hide-size-filter-label {% else %} {{ filter.label | escape }}-main-drop js-filter {% endif %}" data-index="{{ forloop.index }}">
                       <summary class="facets__summary caption-large focus-offset">
                                 <div>
-                                  <span>{{- size_filter.label | escape }}</span>
+                                  <span>{{- filter.label | escape }}</span>
                                   {% render 'icon-caret' %}
                                 </div>
                       </summary>
                         <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
                           <div class="facets__header">
-                            <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: size_filter.active_values.size }}</span>
+                            <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
                             <facet-remove>
-                              <a href="{{ size_filter.url_to_remove }}" class="facets__reset link underlined-link">
+                              <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
                                 {{ 'products.facets.reset' | t }}
                               </a>
                             </facet-remove>
                           </div>
                           <!-- create checkboxes for filter's active values --> 
                           <ul class="facets__list list-unstyled" role="list">
-                            {%- for value in size_filter.values -%}
+                            {%- for value in filter.values -%}
                               <li class="list-menu__item facets__item">
-                                <label for="Filter-{{ size_filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled hide-size-filter{% endif %}">
+                                <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                                   <input type="checkbox"
                                     name="{{ value.param_name }}"
                                     value="{{ value.value }}"
-                                    id="Filter-{{ size_filter.label | escape }}-{{ forloop.index }}"
+                                    id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
                                     {% if value.active %}checked{% endif %}
                                     {% if value.count == 0 and value.active == false %}disabled{% endif %}
                                   >
