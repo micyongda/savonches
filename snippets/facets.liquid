@@ -46,7 +46,7 @@
 
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
-            {% assign filter_order = 'Brand, Category, Condition' | split: ", " %}
+            {% assign filter_order = 'Brand, Category, Condition, Size' | split: ", " %}
             {% assign size_filters = results.filters | where_exp: "item", "item.label contains 'Size'" %}
 
             {%- for filter_label in filter_order -%}
@@ -112,8 +112,10 @@
                   {%- endif -%}  
                 {%- endfor -%}
               {% else %}
+                <!-- checking if its necessary to entire size filter label --> 
+                {%- assign hide_sizes_label = false -%}
                 {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
+                <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_label == true %} hide-size-filter {% else %} {{- filter_label | escape }}-main-drop js-filter {% endif %}" data-index="">
                 <summary class="facets__summary caption-large focus-offset">
                           <div>
                             <span>Sizes</span>
@@ -121,9 +123,11 @@
                           </div>
                 </summary>
                 {%- for filter in size_filters -%}
-                  <!-- order of filters is as follows: 'Brand, Category, Size, Condition' -->
+                  <!-- checking if its necessary to hide a size filter label --> 
+                  {%- if filter.label == 'Condition' or filter.label == 'Category' or filter.label == 'Brand' -%}{% continue %}{%- endif -%}
+                  {%- assign hide_sizes_filter_label = false -%}
                     {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
-                      <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
+                      <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_filter_label == true %} hide-size-filter-label {% else %} {{ filter.label | escape }}-main-drop js-filter {% endif %}" data-index="{{ forloop.index }}">
                       <summary class="facets__summary caption-large focus-offset">
                                 <div>
                                   <span>{{- filter.label | escape }}</span>
