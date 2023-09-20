@@ -349,12 +349,12 @@ html body {
 }
 
 .section__ourlatest_piece ul li img {
-    width: 100%;
+    width: calc(80% – 1rem / 2);
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate( -50%, -50%);
-    max-width: 230px;
+    max-width: 80%;
 }
 
 .section__ourlatest_piece ul li .box__image_prod {
