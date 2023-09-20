@@ -56,7 +56,7 @@
                   {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                   {% if filter.label == filter_label %}
                     <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
-                    <summary class="facets__summary caption-large focus-offset">
+                    <summary id="filter-label" class="facets__summary caption-large focus-offset">
                               <div>
                                 <span>{{- filter_label | escape }}</span>
                                 {% render 'icon-caret' %}
@@ -116,7 +116,7 @@
                 {%- assign hide_sizes_label = false -%}
                 {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                 <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_label == true %} hide-size-filter {% else %} {{- filter_label | escape }}-main-drop js-filter {% endif %}" data-index="">
-                <summary class="facets__summary caption-large focus-offset">
+                <summary id="filter-label" class="facets__summary caption-large focus-offset">
                           <div>
                             <span>Sizes</span>
                             {% render 'icon-caret' %}
@@ -128,7 +128,7 @@
                   {%- assign hide_sizes_filter_label = false -%}
                     {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                       <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_filter_label == true %} hide-size-filter-label {% else %} {{ filter.label | escape }}-main-drop {% endif %}" data-index="{{ forloop.index }}">
-                      <summary class="facets__summary caption-large focus-offset">
+                      <summary id="filter-label" class="facets__summary caption-large focus-offset">
                                 <div>
                                   <span>{{- filter.label | escape }}</span>
                                   {% render 'icon-caret' %}
