@@ -46,15 +46,17 @@
 
         {% if enable_filtering %}
           <div id="FacetsWrapperDesktop" class="facets__wrapper">
-            {% assign filter_order = 'Brand, Category, Condition, Sizes' | split: ", " %}
+            {% assign filter_order = 'Brand, Category, Condition, Size' | split: ", " %}
+            {% assign size_filters = results.filters | where_exp: "item", "item.label contains 'Size'" %}
+
             {%- for filter_label in filter_order -%}
-              {% if filter_label != 'Heavy Jackets Size' and filter_label != 'Outerwear Size' and filter_label != 'Tops Size' and filter_label != 'Bottoms Size' and filter_label != 'Shoes Size' %}
+              {% if filter_label != 'Size' %}
                 {%- for filter in results.filters -%}
                 <!-- order of filters is as follows: 'Brand, Category, Size, Condition' -->
                   {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
                   {% if filter.label == filter_label %}
                     <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{{ filter.label | escape }}-main-drop js-filter" data-index="{{ forloop.index }}">
-                    <summary id="filter-label" class="facets__summary caption-large focus-offset">
+                    <summary class="facets__summary caption-large focus-offset">
                               <div>
                                 <span>{{- filter_label | escape }}</span>
                                 {% render 'icon-caret' %}
@@ -73,7 +75,7 @@
                         <ul class="facets__list list-unstyled" role="list">
                           {%- for value in filter.values -%}
                             <li class="list-menu__item facets__item">
-                              <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}" {% if value.count == 0 and value.active == false %} style="display: none;"{% endif %}>
+                              <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
                                 <input type="checkbox"
                                   name="{{ value.param_name }}"
                                   value="{{ value.value }}"
@@ -109,8 +111,80 @@
                     </details>
                   {%- endif -%}  
                 {%- endfor -%}
-              {%- endif -%}  
-            {%- endfor -%}
+              {% else %}
+                <!-- checking if its necessary to entire size filter label --> 
+                {%- assign hide_sizes_label = false -%}
+                {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_label == true %} hide-size-filter {% else %} {{- filter_label | escape }}-main-drop js-filter {% endif %}" data-index="">
+                <summary class="facets__summary caption-large focus-offset">
+                          <div>
+                            <span>Sizes</span>
+                            {% render 'icon-caret' %}
+                          </div>
+                </summary>
+                {%- for filter in size_filters -%}
+                  <!-- checking if its necessary to hide a size filter label --> 
+                  {%- if filter.label == 'Condition' or filter.label == 'Category' or filter.label == 'Brand' -%}{% continue %}{%- endif -%}
+                  {%- assign hide_sizes_filter_label = false -%}
+                    {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+                      <details cid="Details-{{ forloop.index }}-{{ section.id }}" class="{% if hide_sizes_filter_label == true %} hide-size-filter-label {% else %} {{ filter.label | escape }}-main-drop {% endif %}" data-index="{{ forloop.index }}">
+                      <summary class="facets__summary caption-large focus-offset">
+                                <div>
+                                  <span>{{- filter.label | escape }}</span>
+                                  {% render 'icon-caret' %}
+                                </div>
+                      </summary>
+                        <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display">
+                          <div class="facets__header">
+                            <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+                            <facet-remove>
+                              <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                                {{ 'products.facets.reset' | t }}
+                              </a>
+                            </facet-remove>
+                          </div>
+                          <!-- create checkboxes for filter's active values --> 
+                          <ul class="facets__list list-unstyled" role="list">
+                            {%- for value in filter.values -%}
+                              <li class="list-menu__item facets__item">
+                                <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                                  <input type="checkbox"
+                                    name="{{ value.param_name }}"
+                                    value="{{ value.value }}"
+                                    id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                    {% if value.active %}checked{% endif %}
+                                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                                  >
+  
+                                  <svg width="1.6rem" height="1.6rem" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <rect width="16" height="16" stroke="currentColor" fill="none" stroke-width="1"></rect>
+                                  </svg>
+  
+                                  <svg class="icon icon-checkmark"
+                                    width="1.1rem"
+                                    height="0.7rem"
+                                    viewBox="0 0 11 7"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+  
+                                    <path d="M1.5 3.5L2.83333 4.75L4.16667 6L9.5 1"
+                                      stroke="currentColor"
+                                      stroke-width="1.75"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+  
+                                  {{ value.label | escape }} ({{ value.count }})
+                                </label>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      </details>
+                  {%- endfor -%}
+                  </details>
+                {%- endif -%}  
+              {%- endfor -%}
           </div>
           <div class="active-facets active-facets-desktop">
             {%- for filter in results.filters -%}
