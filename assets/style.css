@@ -2126,7 +2126,7 @@ form.edit_checkout {
 /* TO:DO increase width to 234px and height to 293px */
 .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
     width: 95%;
-    height: auto;
+    height: 95%;
     left: 50%!important;
     top: 50%!important;
     transform: translate(-50%,-50%)!important;
