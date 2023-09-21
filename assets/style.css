@@ -2379,9 +2379,13 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
             width: 70%;
     }
 }
-
+/* max-width of 768px is common on mobile devices */
 @media (max-width: 768px) {
   
+    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
+        height: auto;
+    }
+    
   	.section__testimonials .col__right_testimonials.only__mobile {
     	display: block!important;
       	width: 100%;
