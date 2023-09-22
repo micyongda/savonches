@@ -2868,13 +2868,11 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
       max-width: 150px;
     }
 
-    .section__collection_list #ProductGridContainer .collection.page-width #product-grid-sold-out,
   	.section__collection_list #ProductGridContainer .collection.page-width #product-grid {
         column-gap: 20px;
         row-gap: 50px;
     }
 
-    .section__collection_list #ProductGridContainer .collection.page-width #product-grid-sold-out .grid__item,
     .section__collection_list #ProductGridContainer .collection.page-width #product-grid .grid__item {
         width: calc(53% - 22.5px);
         max-width: calc(54% - 22.5px);

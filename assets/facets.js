@@ -150,7 +150,6 @@ class FacetFiltersForm extends HTMLElement {
     return [
       {
         section: document.getElementById('product-grid').dataset.id
-        // section: document.getElementById('product-grid-sold-out').dataset.id,
       }
     ]
   }
