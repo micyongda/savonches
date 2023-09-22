@@ -2381,13 +2381,18 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
 }
 /* max-width of 768px is common on mobile devices */
 @media (max-width: 768px) {
-  
-    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
-        height: auto;
-    }
 
     .section__collection_list #ProductGridContainer .collection.page-width .card--standard.card--media .card__inner {
         height: 330px;
+    }
+
+    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
+        width: 95%;
+        height: auto;
+        left: 50%!important;
+        top: 50%!important;
+        transform: translate(-50%,-50%)!important;
+        max-width: 200px;
     }
     
   	.section__testimonials .col__right_testimonials.only__mobile {
