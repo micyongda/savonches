@@ -2120,17 +2120,17 @@ form.edit_checkout {
 }
 
 .section__collection_list #ProductGridContainer .collection.page-width .card--standard.card--media .card__inner {
-    height: 550px;
+    height: 620px;
 }
 
 /* TO:DO increase width to 234px and height to 293px */
 .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
-    width: 95%;
-    height: 85%;
+    width: 100%;
+    height: 75%;
     left: 50%!important;
     top: 50%!important;
     transform: translate(-50%,-50%)!important;
-    max-width: 280px;
+    max-width: 390px;
 }
 
 .product__media-gallery .slider-mobile-gutter .slider-button {
