@@ -2430,6 +2430,12 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
         transform: translate(-50%,-50%)!important;
         max-width: 390px;
     }
+
+    .section__collection_list #ProductGridContainer .collection.page-width #product-grid .grid__item,
+    .section__collection_list #ProductGridContainer .collection.page-width .product-grid .grid__item {
+        width: calc(33.33% - 30px * 3 / 4);
+        max-width: calc(33.33% - 30px * 3 / 4);
+    }
 }
 /* max-width of 768px is common on mobile devices */
 @media (max-width: 768px) {
