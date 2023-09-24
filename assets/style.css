@@ -2130,7 +2130,7 @@ form.edit_checkout {
     left: 50%!important;
     top: 50%!important;
     transform: translate(-50%,-50%)!important;
-    max-width: 390px;
+    max-width: 500px;
 }
 
 .product__media-gallery .slider-mobile-gutter .slider-button {
