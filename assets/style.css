@@ -2149,6 +2149,15 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
 
 @media (max-width: 1440px) {
   
+    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
+        width: 125%;
+        height: 75%;
+        left: 50%!important;
+        top: 50%!important;
+        transform: translate(-50%,-50%)!important;
+        max-width: 500px;
+    }
+
 	.section__exclusives_contain ul li > div {
 		height: 350px;
     	max-height: 350px;
@@ -2175,6 +2184,14 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
 }
 
 @media (max-width: 1366px) {
+    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
+        width: 125%;
+        height: 75%;
+        left: 50%!important;
+        top: 50%!important;
+        transform: translate(-50%,-50%)!important;
+        max-width: 500px;
+    }
 
   
   .section__homemainbanner {
@@ -2188,6 +2205,14 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
 }
 
 @media (max-width: 1200px) {
+    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
+        width: 125%;
+        height: 75%;
+        left: 50%!important;
+        top: 50%!important;
+        transform: translate(-50%,-50%)!important;
+        max-width: 500px;
+    }
 
 	.section__ourlatest_piece ul li img {
         width: 80%;
@@ -2208,6 +2233,14 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
 }
 
 @media (max-width: 1024px) {
+    .section__collection_list #ProductGridContainer .collection.page-width .card__media>.media img {
+        width: 125%;
+        height: 75%;
+        left: 50%!important;
+        top: 50%!important;
+        transform: translate(-50%,-50%)!important;
+        max-width: 500px;
+    }
   
   	.section__testimonials {
      	display: block; 
