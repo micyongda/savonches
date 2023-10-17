@@ -349,13 +349,13 @@ html body {
 }
 
 .section__ourlatest_piece ul li img {
-    width: calc(80% – 1rem / 2);
-    height: auto;
+    width: 85%;
+    height: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate( -50%, -50%);
-    max-width: 80%;
+    max-width: 120%;
 }
 
 .section__ourlatest_piece ul li .box__image_prod {
@@ -2214,9 +2214,9 @@ html body main > #shopify-section-template--16099342483692__165780635347c7a11a .
         max-width: 500px;
     }
 
-	.section__ourlatest_piece ul li img {
+	/* .section__ourlatest_piece ul li img {
         width: 80%;
-    }
+    } */
   
   .section__filter_contain {
     padding: 45px 20px 0;
