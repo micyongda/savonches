@@ -112,3 +112,7 @@ details#Details-1-template--16673663123692__product-grid {
 #filter-label {
   font-size: 16px;
 }
+
+#sold-out-product {
+  opacity: 0.35;
+}
