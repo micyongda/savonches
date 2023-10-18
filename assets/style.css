@@ -355,7 +355,6 @@ html body {
     left: 50%;
     top: 50%;
     transform: translate( -50%, -50%);
-    max-width: 120%;
     object-fit: contain;
 }
 
