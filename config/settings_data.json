@@ -104,6 +104,7 @@
         "blocks": {
           "1a6bb1d5-1c7d-4dd7-b6bb-ac0c1eb96a06": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "BLACK FRIDAY SALE. UP TO 15% OFF SITEWIDE. DISCOUNT AUTOMATICALLY ADDED TO CHECKOUT. SOME EXCLUSIONS APPLY.",
               "color_scheme": "accent-1",
